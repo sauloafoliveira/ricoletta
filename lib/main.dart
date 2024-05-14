@@ -4,17 +4,31 @@ import 'package:ricoletta/views.dart';
 import 'package:ricoletta/backend.dart' as BackEnd;
 import 'package:flutter/material.dart';
 import 'package:ricoletta/animal_view.dart';
-import 'package:ricoletta/models.dart';
 import 'package:ricoletta/views/home_view.dart';
 import 'package:ricoletta/ricoleta.dart' as RicoColeta;
+import 'package:ricoletta/views/login_view.dart';
 
 void main() {
 
-  runApp(new MaterialApp(home: FutureBuilder(
+  runApp(new MaterialApp( home:  LoginView()));
+
+
+
+
+  return;
+
+  runApp(new MaterialApp(
+      debugShowMaterialGrid: true,
+      home: FutureBuilder(
     future: RicoColeta.getProdutor(),
     builder: (context, snapshot) {
       if(snapshot.connectionState == ConnectionState.done) {
-        List<dynamic> result = snapshot.data as List<dynamic>;
+
+        List<dynamic> result = (snapshot.data ?? []) as List<dynamic>;
+
+        if (result.isEmpty) {
+          return HomeView(RicoColeta.Produtor.mock());
+        }
         final p = RicoColeta.Produtor(result[0]);
         return HomeView(p);
       }
@@ -51,12 +65,12 @@ void main() {
 
 
 class ProfileView extends StatelessWidget {
-  const ProfileView({super.key});
+  final RicoColeta.Produtor produtor;
+
+  const ProfileView({super.key, required this.produtor});
 
   @override
   Widget build(BuildContext context) {
-    Produtor p =
-        Produtor('000.000.000-01', 'saulo@ifce.edu.br', 'Saulo Oliveira');
 
     return MaterialApp(
         home: Scaffold(
@@ -76,9 +90,9 @@ class ProfileView extends StatelessWidget {
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                  Text(p.nome),
-                  Text(p.cpfOuCnpj),
-                  Text(p.email),
+                  Text(produtor.nome),
+                  Text(produtor.cpfOuCnpj),
+                  Text(produtor.email),
                 ])),
             Expanded(
                 child: GridView.count(

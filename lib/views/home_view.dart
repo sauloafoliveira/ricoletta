@@ -90,7 +90,7 @@ class StatsButtonWidget extends StatelessWidget {
       ElevatedButton(child:
           ListTile(
             title: Text('$stats', style: h1.copyWith(fontSize: 50),),
-            subtitle: Text('$subtitle', style: h1.copyWith(color: Colors.black87)),
+            subtitle: Text('$subtitle', style: h1.copyWith(color: Colors.black87, fontSize: 18, fontWeight: FontWeight.normal)),
             trailing: Icon(Icons.assessment_outlined, size: 50),
           ), onPressed: onPressed);
 
@@ -120,7 +120,7 @@ class HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
 
     AlertBoxWidget alertBoxWidget = AlertBoxWidget(messages: [
-    'Saulo', 'Oliveira', 'Saulo', 'Oliveira'
+   // 'Saulo', 'Oliveira', 'Saulo', 'Oliveira'
     ]);
 
     bool hideAlertBox = alertBoxWidget.messages.isEmpty;
@@ -143,7 +143,7 @@ class HomeViewState extends State<HomeView> {
 
               alertBoxWidget,
               ListTile(
-                title: Text('Minhas estatísticas'),
+                title: Text('Resumo', style: h1),
               ),
               Expanded(
                   //

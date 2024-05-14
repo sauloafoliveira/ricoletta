@@ -6,33 +6,25 @@ class AddProdutoView extends StatefulWidget {
 }
 
 class AddProdutoViewState extends State<AddProdutoView> {
+  final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title:Hero(
-              tag: 'add_produto',
-              child: Icon(Icons.party_mode))
-      ),
-      body: Container(
-        padding: EdgeInsets.all(8),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              
-              Text('Bem-vindo, Saulo!')
-              
-            ],
-          ),
-        ),
-      ),
-      bottomSheet: BottomSheet(builder: (BuildContext context) {
-        return Text('MDs');
-      }, onClosing: () {
-        print('fechando');
-      },
-
+          title: Hero(tag: 'add_produto', child: Icon(Icons.party_mode))),
+      body: Form(
+          key: _formKey,
+          child: ListView(
+            padding: EdgeInsets.symmetric(vertical: 16),
+          )),
+      bottomSheet: BottomSheet(
+        builder: (BuildContext context) {
+          return Text('MDs');
+        },
+        onClosing: () {
+          print('fechando');
+        },
       ),
     );
   }

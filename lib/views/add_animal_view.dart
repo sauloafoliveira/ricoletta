@@ -36,7 +36,7 @@ class AddAnimalViewState extends State<AddAnimalView> {
                           children: [Icon(Icons.male), Icon(Icons.female)],
                         )),
                     RadioListTile(
-                      title: const Text('Lafayette'),
+                      title: const Text('Macho'),
                       value: 'M',
                       groupValue: sexo,
                       onChanged: (String? value) {
@@ -46,7 +46,7 @@ class AddAnimalViewState extends State<AddAnimalView> {
                       },
                     ),
                     RadioListTile(
-                      title: const Text('Lafayette'),
+                      title: const Text('Fêmea'),
                       value: 'F',
                       groupValue: sexo,
                       onChanged: (String? value) {
@@ -174,7 +174,7 @@ class AddAnimalViewState extends State<AddAnimalView> {
                           });
                         }
                       },
-                      child: const Text('Submit'),
+                      child: const Text('Cadastrar'),
                     ),
                     width: double.infinity,
                     height: 50,
