@@ -13,7 +13,7 @@ http.Client _client = http.Client();
 
 class RicoService {
 
-  static const String BASE_URL = 'https://www.ricoleta.app.br';
+  static const String BASE_URL = 'https://localhost:8000';
   static const String ANIMALS_URL = BASE_URL +  '/coleta/animais/';
   static const String PRODUTOS_URL = BASE_URL +  '/coleta/produtos/';
 
